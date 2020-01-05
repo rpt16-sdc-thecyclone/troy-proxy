@@ -5,7 +5,7 @@ const PORT = 3000;
 
 app.use(express.static(__dirname + '/../public'));
 
-app.use('/images', proxy('http://fec-matt-dev.us-east-2.elasticbeanstalk.com/', {
+app.use('/images', proxy('http://localhost:3003', {
   proxyReqPathResolver: function (req) {
     var path = req.url.split('/')[1];
     return `/images${path}`;
